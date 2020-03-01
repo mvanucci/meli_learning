@@ -15,8 +15,6 @@ $redirectURI = getenv('Redirect_URI');
 If you don't know your site_id go to our sites resources: https://api.mercadolibre.com/sites  */
 $siteId = 'MLB';
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //If you don't use Heroku use the next config
 
@@ -27,3 +25,12 @@ $siteId = 'MLB';
 // $redirectURI = 'Redirect_URI';
 
 // $siteId = 'MLB';
+
+class FileEnv {
+	const FILE = ".env";
+
+	public static function getEnv($param){
+		$config = parse_ini_file(self::FILE);
+		return $config[$param];
+	}
+}
